@@ -1,0 +1,29 @@
+Lab 1: Count
+
+Issue: binary vs text file format
+Solution: I'm unsure tbh. 
+
+Issue: Buffer size vs Search String Size
+Solution: Buffer Size = 2x Search String, max search string = 20char, so at most 40 bytes.  Read in lenSS chars at a time.
+
+Issue: Hidden Strings  
+Solution: Got back to start of string, and move forward one
+
+Issue: Matches across reads
+Solution: Read a second buffer in, maybe use a rotating buffer for input as well. 
+
+Ex.
+SS = tttt
+String = tttasdtttttt
+Buf 1 = tttasdtt
+Pos = 0 ttta = False #Could we jump to the where it differed? Yes
+Pos = 4 s = False
+Pos = 5 d = false
+Pos = 6 tt End of buffer
+Buf 2 = tttasdtttttt
+Pos = 6 tttt True
+Pos = 7 tttt True 
+Pos = 8 tttt True
+Pos = 9 ttt Try to read buffer, EOF done. 
+Count = 3 
+Size = 8 + 6 (Returns from fread)
