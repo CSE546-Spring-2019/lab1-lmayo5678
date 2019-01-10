@@ -12,6 +12,25 @@ Solution: Got back to start of string, and move forward one
 Issue: Matches across reads
 Solution: Read a second buffer in, maybe use a rotating buffer for input as well. 
 
+Issue: How to tell when you need to read in new buffer? 
+Solution: A variable indicating which half of the buffer is the first half. 
+Command Line Usage: 
+count $input-filename $search-string $output-file
+
+General Format:
+Init Variables - totalLen, buffer, search-string, match, ssLoc, FILE pointer
+Read in file
+while not EOF
+    Read in buffer
+    for char in buffer 
+        compare with search-string
+        if match
+            store match location
+            increment ssLoc
+        else 
+            next char
+            ssLoc = 0
+        
 Ex.
 SS = tttt
 String = tttasdtttttt
