@@ -6,7 +6,7 @@ CFlags = -g -Wall
 all: count
 
 count: count.c
-	$(CC) $CFLAGS) -o count count.c
+	$(CC) $(CFLAGS) -o count count.c
 
 clean:
 	rm count
