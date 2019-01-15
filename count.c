@@ -26,8 +26,8 @@ int main(int argc, char* argv[])
     size_t char_len = sizeof(char); 
     buffer = calloc(buf_size, char_len);
     
-    int count = 0;
-    int file_size = 0;
+    unsigned long long int count = 0;
+    unsigned long long int file_size = 0;
     
     //We need to keep track of as many possible matches as there are characters in the search string.
     //For example, tttttt as input and ttt as the search string, would require 3 increments per character as it matches each of the characters in the search string. 
@@ -70,10 +70,10 @@ int main(int argc, char* argv[])
     } 
        
     //Output information to file and     
-    fprintf(output_file, "File size: %d\n", file_size);
-    fprintf(output_file, "%s appeared %d times\n", search_string, count);
-    printf("File size: %d\n", file_size);
-    printf("%s appeared %d times\n", search_string, count);
+    fprintf(output_file, "File size: %llu\n", file_size);
+    fprintf(output_file, "%s appeared %llu times\n", search_string, count);
+    printf("File size: %llu\n", file_size);
+    printf("%s appeared %llu times\n", search_string, count);
     
     free(buffer);
     free(matches);
